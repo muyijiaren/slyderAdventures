@@ -1,0 +1,103 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=640">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大转盘</title>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/slyders.css">
+<script type="text/javascript" src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+<script type="text/javascript" src="./js/hotcss.js"></script>
+<script type="text/javascript" src="./js/jQueryRotate.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
+<script type="text/javascript" language="javascript" src="js/linkageProvinceCity.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+          <div class="scroller"  style="transition-property:transform;transition-timing-function: cubic-bezier(0, 0, 0.25, 1);transition-duration: 850ms;transform: translate3d(0px, 0px, 0px);">
+            <div id="div1" class="rotate-con-pan page">
+               <div id="div2" class="rotate-con-zhen "></div>
+            </div>
+           
+            <form action="" class="page">
+                <fieldset>
+                    <label for="userName">收货人姓名:</label>
+                    <input type="text" name="userName" id="userName" placeholder="收货人姓名">
+                    <label for="userPhone">手机号码:</label>
+                    <input type="tel" name="userPhone" id="userPhone" pattern="^1\d{10}$" placeholder="请输入您的手机号码">
+                    <label for="code">手机验证码:</label>
+                    <div>
+                        <input type="text" name="code" id="code" placeholder="手机验证码"><a href="#">获取验证码</a>
+                    </div>
+                    <label >选择地区:</label><br/>
+                    <div class="chooseAddress">
+                         <select id="selectProv">
+                          <option >请选择省份</option>
+                         </select>
+                         <select id="selectCity">
+                               <option >请选择市区</option>
+                         </select>
+                    </div>
+                    <label for="detail">详细地址:</label>
+                    <input type="text" name="detail" id="detail" placeholder="例如XX街道XX号">
+                    <input  type="submit"  value="提交订单">
+                </fieldset>
+            </form>
+         </div>
+    </div>
+   
+    
+<script type="text/javascript">
+$(function(){
+    // function init(callback){
+    //  setTimeout(function(){
+    //     var a = runzp();
+    //     $(".rotate-con-zhen").rotate({
+    //            duration:5000,               //转动时间
+    //            angle: 0,                    //起始角度
+    //            animateTo:1440+a.angle,      //结束的角度
+    //            easing: $.easing.easeOutSine
+    //     });
+    //     callback();
+    //   },2000);
+    // }
+
+     function init(callback){
+        var flag = false;
+        setTimeout(function(){
+        var a = runzp();
+        $(".rotate-con-zhen").rotate({
+               duration:5000,               //转动时间
+               angle: 0,                    //起始角度
+               animateTo:1440+a.angle,      //结束的角度
+               easing: $.easing.easeOutSine
+        });
+        // callback();
+        flag=true;
+      },2000);
+      var timer = setInterval(function(){
+        if(flag){
+            clearInterval(timer);
+            callback();
+        }
+      },3000);
+    }
+
+    function toggleForm(){
+        var width = $(window).width();//屏幕的宽度，用于切换时位置的定位
+        setTimeout(function(){
+             $('.scroller').css('transform', 'translate3d('+-width+'px, 0px, 0px)');
+        },10000);
+    }
+    
+   
+    init(toggleForm);
+ });
+
+ 
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+@import 'px2rem'; 
+
+$designWidth : 640; 
+
+html{
+    height:100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+.container{
+        height:100%;
+        overflow: hidden;
+}
+
+.scroller{ display: -webkit-box;display: -ms-flexbox;display: -moz-box;display: flex;height:100%}
+.scroller .page{ min-width: 100%;max-width: 100%;display: block; }
+
+.rotate-con-pan{
+    width:px2rem(480);
+    height:px2rem(640);
+    background:url(../images/dropkick.jpg) no-repeat 0 0;
+    background-size:100%;
+    position:relative;
+  
+}
+.rotate-con-zhen{
+    width:px2rem(112);
+    height:px2rem(224);
+    background:url(../images/start.png) no-repeat 0 0;
+    background-size:100%;
+    cursor:pointer;
+    position:absolute;
+    left:41%;
+    top:35%;
+}
+
+
+form{
+   height:100%;
+   border:px2rem(2) solid #000;
+   box-sizing:border-box;
+   font-size:px2rem(30);
+}
+form>fieldset{
+    height:100%;
+    padding:px2rem(25);
+}
+form > fieldset input,select{
+    width: 100%;
+    height:px2rem(80);
+    line-height: px2rem(80);
+    margin:px2rem(10) 0;
+    border: none;
+    border: px2rem(1) solid #ccc;
+    border-radius: px2rem(4);
+    font-size: px2rem(26);
+    padding-left:px2rem(5);
+    box-sizing: border-box;
+    padding-left:px2rem(15);
+}
+form > fieldset > div > input{
+     width: 50%;
+     padding-left:px2rem(15);
+}
+form > fieldset > div > a{
+    height:px2rem(80);
+    line-height: px2rem(80);
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:px2rem(10);
+    text-align:center;
+    width:48%;
+    background:#F10215;
+    color:#fff;
+}
+
+form > fieldset select{
+    color:#757575;
+    appearance:none;
+    -moz-appearance: none; 
+    -webkit-appearance:none; 
+    withd:100px;
+}
+
+input[type="submit"]{
+    background:#F10215;
+     color:#fff;
+}
+
